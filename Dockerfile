@@ -40,7 +40,7 @@ RUN apt-get update \
  nodejs
 
 #
-# Install Composer and Drush
+# Install Composer
 #
 ENV PATH "/composer/vendor/bin:$PATH"
 ENV COMPOSER_ALLOW_SUPERUSER 1
@@ -67,7 +67,6 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
       gettext \
       intl \
       ldap \
-      mcrypt \
       mysqli \
       opcache \
       pcntl \
@@ -81,6 +80,7 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
       zip \
     && pecl install redis apcu \
     && docker-php-ext-enable redis apcu
+
 
 
 #
